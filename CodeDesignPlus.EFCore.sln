@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D9091A1A-F5F3-49D6-BF23-11B4CD8E4BCF}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{1B318F35-827F-40BD-A640-63E10EFBF2BF}"
+	ProjectSection(SolutionItems) = preProject
+		pipelines\git-version.yaml = pipelines\git-version.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{FF9FC104-7070-41B2-A679-39B2A78B69C8}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\run-scanner-sonarqube.ps1 = scripts\run-scanner-sonarqube.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{197BFE61-6819-4619-8CB7-A1658C268ED7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3CEB1895-CCA4-4136-8818-E8D53876053F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeDesignPlus.EFCore", "src\CodeDesignPlus.EFCore\CodeDesignPlus.EFCore.csproj", "{428ED96D-22E6-4139-97F2-C8B3F2C3A182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDesignPlus.EFCore.Test", "tests\CodeDesignPlus.EFCore.Test\CodeDesignPlus.EFCore.Test.csproj", "{FE20CEAE-9D2D-4145-90FC-BEB2FD6A21AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{428ED96D-22E6-4139-97F2-C8B3F2C3A182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428ED96D-22E6-4139-97F2-C8B3F2C3A182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428ED96D-22E6-4139-97F2-C8B3F2C3A182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428ED96D-22E6-4139-97F2-C8B3F2C3A182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE20CEAE-9D2D-4145-90FC-BEB2FD6A21AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE20CEAE-9D2D-4145-90FC-BEB2FD6A21AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE20CEAE-9D2D-4145-90FC-BEB2FD6A21AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE20CEAE-9D2D-4145-90FC-BEB2FD6A21AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{428ED96D-22E6-4139-97F2-C8B3F2C3A182} = {197BFE61-6819-4619-8CB7-A1658C268ED7}
+		{FE20CEAE-9D2D-4145-90FC-BEB2FD6A21AB} = {3CEB1895-CCA4-4136-8818-E8D53876053F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {113C3F1F-931B-46EB-8BA4-127F86ECA4E9}
+	EndGlobalSection
+EndGlobal

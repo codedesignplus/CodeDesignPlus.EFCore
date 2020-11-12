@@ -1,0 +1,1 @@
+D:\Projects\Sdk\CodeDesignPlus.EFCore\CodeDesignPlus.EFCore\.sonarqube\out\0
