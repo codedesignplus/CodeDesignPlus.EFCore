@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\CodeDesignPlus.EFCore\CodeDesignPlus.EFCore.csproj" />
+    <ProjectReference Include="..\..\CodeDesignPlus.Abstractions\CodeDesignPlus.Abstractions\CodeDesignPlus.Abstractions.csproj" />
+    <ProjectReference Include="..\..\CodeDesignPlus.Entities\CodeDesignPlus.Entities\CodeDesignPlus.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
