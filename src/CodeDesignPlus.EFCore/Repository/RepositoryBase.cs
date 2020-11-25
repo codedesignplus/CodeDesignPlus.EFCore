@@ -68,7 +68,7 @@ namespace CodeDesignPlus.EFCore.Repository
         /// <returns>Represents an asynchronous operation that can return a value.</returns>
         private async Task<TEntity> ProcessCreateAsync<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : class, IEntityBase<TKey, TUserKey>
         {
-            await this.Context.AddAsync(entity);
+            await this.Context.AddAsync(entity, cancellationToken);
 
             await this.Context.SaveChangesAsync(cancellationToken);
 
@@ -169,7 +169,7 @@ namespace CodeDesignPlus.EFCore.Repository
         /// <returns>Represents an asynchronous operation that can return a value.</returns>
         private async Task<List<TEntity>> ProcessCreateRangeAsync<TEntity>(List<TEntity> entities, CancellationToken cancellationToken) where TEntity : class, IEntityBase<TKey, TUserKey>
         {
-            await this.Context.AddRangeAsync(entities);
+            await this.Context.AddRangeAsync(entities, cancellationToken);
 
             await this.Context.SaveChangesAsync(cancellationToken);
 

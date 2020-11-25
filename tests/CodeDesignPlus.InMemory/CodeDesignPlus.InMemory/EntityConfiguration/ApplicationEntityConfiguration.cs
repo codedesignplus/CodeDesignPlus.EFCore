@@ -8,6 +8,7 @@ namespace CodeDesignPlus.InMemory.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Application> builder)
         {
+            builder.ToTable("Aplicacion");
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).HasColumnType("varchar(64)").IsRequired();
             builder.Property(x => x.Description).HasColumnType("varchar(512)").IsRequired();

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<ProjectGuid>F6C1BD1B-2984-4BDB-9F5B-498CB640D378</ProjectGuid>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Authors>CodeDesignPlus</Authors>
+		<Description>This library contains the interfaces and implementations for the generic repository pattern.</Description>
+		<Copyright>© CodeDesignPlus. All rights reserved.</Copyright>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<PackageTags>CodeDesignPlus Core SDK EFCore</PackageTags>
+		<RepositoryType>Git</RepositoryType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>..\..\docs\CSharp Doc\CodeDesignPlus.EFCore.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\..\logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CodeDesignPlus.Core" Version="1.0.5" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
+	</ItemGroup>
+
+</Project>

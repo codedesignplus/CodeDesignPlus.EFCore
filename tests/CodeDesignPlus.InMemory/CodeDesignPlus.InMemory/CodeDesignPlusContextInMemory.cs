@@ -16,6 +16,9 @@ namespace CodeDesignPlus.InMemory
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new ApplicationEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AppPermissionEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PermissionEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new RolePermissionEntityConfiguration());
         }
 
         public DbSet<Application> Application { get; set; }
