@@ -521,7 +521,7 @@ namespace CodeDesignPlus.EFCore.Test.Repository
             // Arrange 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=UnitTestTransaction;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+            var options = builder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=UnitTestTransaction;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 
@@ -555,7 +555,7 @@ namespace CodeDesignPlus.EFCore.Test.Repository
             // Arrange 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=UnitTestTransaction;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
+            var options = builder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=UnitTestTransaction;Trusted_Connection=True;MultipleActiveResultSets=true").Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 
