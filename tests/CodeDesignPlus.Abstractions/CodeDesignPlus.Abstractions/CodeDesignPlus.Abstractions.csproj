@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\CodeDesignPlus.EFCore\CodeDesignPlus.EFCore.csproj" />
+    <ProjectReference Include="..\..\CodeDesignPlus.Entities\CodeDesignPlus.Entities\CodeDesignPlus.Entities.csproj" />
   </ItemGroup>
 
 </Project>

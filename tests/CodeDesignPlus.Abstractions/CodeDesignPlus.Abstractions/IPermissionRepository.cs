@@ -1,8 +1,9 @@
-﻿using CodeDesignPlus.EFCore.Repository;
+﻿using CodeDesignPlus.EFCore.Operations;
+using CodeDesignPlus.Entities;
 
 namespace CodeDesignPlus.Abstractions
 {
-    public interface IPermissionRepository : IRepositoryBase<long, int>
+    public interface IPermissionRepository : IOperationBase<long, int, Permission>
     {
     }
 }

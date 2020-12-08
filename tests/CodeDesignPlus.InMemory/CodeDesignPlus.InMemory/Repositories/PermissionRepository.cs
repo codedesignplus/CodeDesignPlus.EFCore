@@ -1,11 +1,13 @@
 ﻿using CodeDesignPlus.Abstractions;
-using CodeDesignPlus.EFCore.Repository;
+using CodeDesignPlus.EFCore.Model;
+using CodeDesignPlus.EFCore.Operations;
+using CodeDesignPlus.Entities;
 
 namespace CodeDesignPlus.InMemory.Repositories
 {
-    public class PermissionRepository : RepositoryBase<long, int>, IPermissionRepository
+    public class PermissionRepository : OperationBase<long, int, Permission>, IPermissionRepository
     {
-        public PermissionRepository(CodeDesignPlusContextInMemory context) : base(context)
+        public PermissionRepository(IAuthenticateUser<int> user, CodeDesignPlusContextInMemory context) : base(user, context)
         {
         }
     }
