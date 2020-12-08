@@ -1,5 +1,5 @@
-﻿using CodeDesignPlus.Entities;
-using CodeDesignPlus.InMemory.EntityConfiguration;
+﻿using CodeDesignPlus.EFCore.Extensions;
+using CodeDesignPlus.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
@@ -15,10 +15,7 @@ namespace CodeDesignPlus.InMemory
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new ApplicationEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new AppPermissionEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new PermissionEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new RolePermissionEntityConfiguration());
+            modelBuilder.RegisterEntityConfigurations<CodeDesignPlusContextInMemory>();
         }
 
         public DbSet<Application> Application { get; set; }

@@ -10,7 +10,7 @@ namespace CodeDesignPlus.EFCore.Operations
     /// <typeparam name="TKey">Type of data that will identify the record</typeparam>
     /// <typeparam name="TUserKey">Type of data that the user will identify</typeparam>
     /// <typeparam name="TEntity">Type of entity to create</typeparam>
-    public interface ICreateOperation<TKey, TUserKey, TEntity> where TEntity: class, IEntityBase<TKey, TUserKey>
+    public interface ICreateOperation<TKey, TUserKey, TEntity> where TEntity : class, IEntityBase<TKey, TUserKey>
     {
         /// <summary>
         /// Method to create a record in the database

@@ -4,7 +4,7 @@
     /// Default implementation of IAuthenticateUser<typeparamref name="TKeyUser"/>
     /// </summary>
     /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
-    public class AuthenticateUser<TKeyUser>: IAuthenticateUser<TKeyUser>
+    public class AuthenticateUser<TKeyUser> : IAuthenticateUser<TKeyUser>
     {
         /// <summary>
         /// Gets a value boolean that indicates whether is a application
