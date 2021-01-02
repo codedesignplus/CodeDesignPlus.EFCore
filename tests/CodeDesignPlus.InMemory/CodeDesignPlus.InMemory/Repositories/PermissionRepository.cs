@@ -1,5 +1,5 @@
 ﻿using CodeDesignPlus.Abstractions;
-using CodeDesignPlus.EFCore.Model;
+using CodeDesignPlus.EFCore.Middleware;
 using CodeDesignPlus.EFCore.Operations;
 using CodeDesignPlus.Entities;
 

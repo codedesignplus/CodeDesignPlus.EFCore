@@ -7,8 +7,15 @@ namespace CodeDesignPlus.InMemory.EntityConfiguration
 {
     public class ApplicationEntityConfiguration : IEntityTypeConfiguration<Application>
     {
+        /// <summary>
+        /// Control property for unit tests
+        /// </summary>
+        public static bool IsInvoked;
+
         public void Configure(EntityTypeBuilder<Application> builder)
         {
+            IsInvoked = true;
+
             builder.ConfigurationBase<long, int, Application>();
 
             builder.ToTable("Aplicacion");

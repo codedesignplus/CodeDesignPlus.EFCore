@@ -1,4 +1,4 @@
-﻿using CodeDesignPlus.EFCore.Model;
+﻿using CodeDesignPlus.EFCore.Middleware;
 using CodeDesignPlus.Entities;
 using CodeDesignPlus.InMemory;
 using CodeDesignPlus.InMemory.Repositories;
@@ -9,8 +9,14 @@ using Xunit;
 
 namespace CodeDesignPlus.EFCore.Test.Operations
 {
-    public class OperationTest
+    /// <summary>
+    /// Unit tests to the OperationBase class
+    /// </summary>
+    public class OperationBaseTest
     {
+        /// <summary>
+        /// Validate that an entity can be created and the record id is returned
+        /// </summary>
         [Fact]
         public async Task CreateAsync_CreateEntity_ReturnId()
         {
@@ -34,7 +40,7 @@ namespace CodeDesignPlus.EFCore.Test.Operations
 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseInMemoryDatabase(nameof(OperationTest)).Options;
+            var options = builder.UseInMemoryDatabase(nameof(OperationBaseTest)).Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 
@@ -54,7 +60,9 @@ namespace CodeDesignPlus.EFCore.Test.Operations
             Assert.True(permission.DateCreated > DateTime.MinValue);
         }
 
-
+        /// <summary>
+        /// Validate that an entity can be updated and true is returned
+        /// </summary>
         [Fact]
         public async Task UpdateAsync_UpdateEntity_ReturnTrue()
         {
@@ -78,7 +86,7 @@ namespace CodeDesignPlus.EFCore.Test.Operations
 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseInMemoryDatabase(nameof(OperationTest)).Options;
+            var options = builder.UseInMemoryDatabase(nameof(OperationBaseTest)).Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 
@@ -112,6 +120,9 @@ namespace CodeDesignPlus.EFCore.Test.Operations
             Assert.Equal(permission.DateCreated, entity.DateCreated);
         }
 
+        /// <summary>
+        /// Validate that an entity cannot be updated and false is returned
+        /// </summary>
         [Fact]
         public async Task UpdateAsync_EntityNotExist_ReturnFalse()
         {
@@ -126,7 +137,7 @@ namespace CodeDesignPlus.EFCore.Test.Operations
 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseInMemoryDatabase(nameof(OperationTest)).Options;
+            var options = builder.UseInMemoryDatabase(nameof(OperationBaseTest)).Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 
@@ -148,6 +159,9 @@ namespace CodeDesignPlus.EFCore.Test.Operations
             Assert.False(success);
         }
 
+        /// <summary>
+        /// Validate that an entity can be removed and true is returned
+        /// </summary>
         [Fact]
         public async Task DeleteAsync_DeleteEntity_ReturnTrue()
         {
@@ -171,7 +185,7 @@ namespace CodeDesignPlus.EFCore.Test.Operations
 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseInMemoryDatabase(nameof(OperationTest)).Options;
+            var options = builder.UseInMemoryDatabase(nameof(OperationBaseTest)).Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 
@@ -186,6 +200,9 @@ namespace CodeDesignPlus.EFCore.Test.Operations
             Assert.True(success);
         }
 
+        /// <summary>
+        /// Validate that an entity cannot be deleted and false is returned
+        /// </summary>
         [Fact]
         public async Task DeleteAsync_EntityNotExist_ReturnFalse()
         {
@@ -200,7 +217,7 @@ namespace CodeDesignPlus.EFCore.Test.Operations
 
             var builder = new DbContextOptionsBuilder<CodeDesignPlusContextInMemory>();
 
-            var options = builder.UseInMemoryDatabase(nameof(OperationTest)).Options;
+            var options = builder.UseInMemoryDatabase(nameof(OperationBaseTest)).Options;
 
             var context = new CodeDesignPlusContextInMemory(options);
 

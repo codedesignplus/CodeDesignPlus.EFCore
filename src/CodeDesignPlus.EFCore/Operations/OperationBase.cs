@@ -1,5 +1,5 @@
 ﻿using CodeDesignPlus.Core.Abstractions;
-using CodeDesignPlus.EFCore.Model;
+using CodeDesignPlus.EFCore.Middleware;
 using CodeDesignPlus.EFCore.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -83,7 +83,7 @@ namespace CodeDesignPlus.EFCore.Operations
 
             if (entityUpdated != null)
             {
-                var properties = typeof(TEntity).GetProperties().Where(x => !this.blacklist.Contains(x.Name)).ToList(); ;
+                var properties = typeof(TEntity).GetProperties().Where(x => !this.blacklist.Contains(x.Name)).ToList();
 
                 foreach (var property in properties)
                 {

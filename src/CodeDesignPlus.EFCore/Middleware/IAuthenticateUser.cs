@@ -1,26 +1,30 @@
-﻿namespace CodeDesignPlus.EFCore.Model
+﻿namespace CodeDesignPlus.EFCore.Middleware
 {
     /// <summary>
-    /// Default implementation of IAuthenticateUser<typeparamref name="TKeyUser"/>
+    /// Provide the information of the authenticated user during the request
     /// </summary>
     /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
-    public class AuthenticateUser<TKeyUser> : IAuthenticateUser<TKeyUser>
+    public interface IAuthenticateUser<TKeyUser>
     {
         /// <summary>
         /// Gets a value boolean that indicates whether is a application
         /// </summary>
-        public bool IsApplication { get; set; }
+        bool IsApplication { get; set; }
         /// <summary>
         /// Gets the Id User authenticated
         /// </summary>
-        public TKeyUser IdUser { get; set; }
+        TKeyUser IdUser { get; set; }
         /// <summary>
         /// Gets a value that indicates whether the user has been authenticated.
         /// </summary>
-        public bool IsAuthenticated { get; set; }
+        bool IsAuthenticated { get; set; }
         /// <summary>
         /// Gets the name of the current user.
         /// </summary>
-        public string Name { get; set; }
+        string Name { get; set; }
+        /// <summary>
+        /// Gets the name of the current user.
+        /// </summary>
+        string Email { get; set; }
     }
 }

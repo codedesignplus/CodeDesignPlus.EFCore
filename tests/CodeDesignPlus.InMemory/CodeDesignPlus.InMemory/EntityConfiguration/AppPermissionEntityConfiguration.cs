@@ -7,8 +7,15 @@ namespace CodeDesignPlus.InMemory.EntityConfiguration
 {
     public class AppPermissionEntityConfiguration : IEntityTypeConfiguration<AppPermision>
     {
+        /// <summary>
+        /// Control property for unit tests
+        /// </summary>
+        public static bool IsInvoked;
+
         public void Configure(EntityTypeBuilder<AppPermision> builder)
         {
+            IsInvoked = true;
+
             builder.ConfigurationBase<long, int, AppPermision>();
 
             builder.HasOne(x => x.Permission).WithMany(x => x.AppPermisions).HasForeignKey(x => x.IdPermission);

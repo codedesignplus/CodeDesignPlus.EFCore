@@ -1,9 +1,15 @@
 ﻿using CodeDesignPlus.Core.Abstractions;
 using CodeDesignPlus.Core.Models.Pager;
+using CodeDesignPlus.EFCore.Middleware;
+using CodeDesignPlus.EFCore.Options;
 using CodeDesignPlus.EFCore.Repository;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -75,6 +81,48 @@ namespace CodeDesignPlus.EFCore.Extensions
 
                 services.AddTransient(@interface, type);
             }
+        }
+
+        /// <summary>
+        /// Add CodeDesignPlus.EFCore configuration options
+        /// </summary>
+        /// <param name="services">The Microsoft.Extensions.DependencyInjection.IServiceCollection to add the service to.</param>
+        /// <param name="configuration">The configuration being bound.</param>
+        /// <param name="section">The key of the configuration section.</param>
+        /// <returns>The Microsoft.Extensions.DependencyInjection.IServiceCollection so that additional calls can be chained.</returns>
+        public static IServiceCollection AddEFCore(this IServiceCollection services, IConfiguration configuration, string section = "EFCore")
+        {
+            services.AddOptions();
+
+            services.Configure<EFCoreOption>(configuration.GetSection(section));
+
+            return services;
+        }
+
+        /// <summary>
+        /// Add a scoped service to build IAuthenticateUser<TKeyUser>
+        /// </summary>
+        /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
+        /// <param name="services">The Microsoft.Extensions.DependencyInjection.IServiceCollection to add the service to.</param>
+        /// <returns>The Microsoft.Extensions.DependencyInjection.IServiceCollection so that additional calls can be chained.</returns>
+        public static IServiceCollection AddIdentityService<TKeyUser>(this IServiceCollection services)
+        {
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IAuthenticateUser<TKeyUser>, AuthenticateUser<TKeyUser>>();
+            services.AddScoped<IIdentityService<TKeyUser>, IdentityService<TKeyUser>>();
+
+            return services;
+        }
+
+        /// <summary>
+        /// Agrega un middleware de tipo IdentityService a la canalización de solicitudes de la aplicación.
+        /// </summary>
+        /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
+        /// <param name="builder">The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.</param>
+        /// <returns>The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.</returns>
+        public static IApplicationBuilder UseIdentityService<TKeyUser>(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<IdentityServiceMiddleware<TKeyUser>>();
         }
 
         /// <summary>

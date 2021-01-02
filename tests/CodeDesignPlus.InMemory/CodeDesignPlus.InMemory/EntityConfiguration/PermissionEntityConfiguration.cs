@@ -7,8 +7,15 @@ namespace CodeDesignPlus.InMemory.EntityConfiguration
 {
     public class PermissionEntityConfiguration : IEntityTypeConfiguration<Permission>
     {
+        /// <summary>
+        /// Control property for unit tests
+        /// </summary>
+        public static bool IsInvoked;
+
         public void Configure(EntityTypeBuilder<Permission> builder)
         {
+            IsInvoked = true;
+
             builder.ConfigurationBase<long, int, Permission>();
 
             builder.Property(x => x.Name).HasColumnType("varchar(64)").IsRequired();
