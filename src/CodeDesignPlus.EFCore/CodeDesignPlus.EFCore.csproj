@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<ProjectGuid>F6C1BD1B-2984-4BDB-9F5B-498CB640D378</ProjectGuid>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<Authors>CodeDesignPlus</Authors>
 		<Description>This library contains the interfaces and implementations for the generic repository pattern.</Description>
@@ -28,8 +29,11 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CodeDesignPlus.Core" Version="1.0.5" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
 	</ItemGroup>
 
 </Project>
