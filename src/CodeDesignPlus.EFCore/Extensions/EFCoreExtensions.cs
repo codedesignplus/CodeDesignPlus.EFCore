@@ -100,7 +100,7 @@ namespace CodeDesignPlus.EFCore.Extensions
         }
 
         /// <summary>
-        /// Add a scoped service to build IAuthenticateUser<TKeyUser>
+        /// Add a scoped service to build IAuthenticateUser{TKeyUser}
         /// </summary>
         /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
         /// <param name="services">The Microsoft.Extensions.DependencyInjection.IServiceCollection to add the service to.</param>
@@ -126,7 +126,7 @@ namespace CodeDesignPlus.EFCore.Extensions
         }
 
         /// <summary>
-        /// Obtenga todas las clases que implementan la interfaz "IEntityTypeConfiguration <Entity>" y cree una instancia para invocar el método configure
+        /// Obtenga todas las clases que implementan la interfaz IEntityTypeConfiguration{TEntity} y cree una instancia para invocar el método configure
         /// </summary>
         /// <typeparam name="TContext">Represents a session with the database and can be used to query and save instances of your entities</typeparam>
         /// <param name="builder">The builder to be used to configure the entity type.</param>

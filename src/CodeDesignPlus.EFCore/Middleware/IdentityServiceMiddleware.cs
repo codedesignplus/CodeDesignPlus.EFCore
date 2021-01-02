@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 namespace CodeDesignPlus.EFCore.Middleware
 {
     /// <summary>
-    /// Middleware that obtains and assigns user information in the IAuthenticateUser <TKeyUser> object
+    /// Middleware that obtains and assigns user information in the IAuthenticateUser{TKeyUser} object
     /// </summary>
-    /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
-    public class IdentityServiceMiddleware<TKeyUser>
+    /// <typeparam name="TUserKey">Type of data that the user will identify</typeparam>
+    public class IdentityServiceMiddleware<TUserKey>
     {
         /// <summary>
         /// A function that can process an HTTP request.
@@ -29,7 +29,7 @@ namespace CodeDesignPlus.EFCore.Middleware
         /// <param name="context">The HttpContext for the current request.</param>
         /// <param name="identityService">The IIdentityService for the current request.</param>
         /// <returns>A Task that represents the execution of this middleware.</returns>
-        public async Task InvokeAsync(HttpContext context, IIdentityService<TKeyUser> identityService)
+        public async Task InvokeAsync(HttpContext context, IIdentityService<TUserKey> identityService)
         {
             identityService.BuildAuthenticateUser();
 

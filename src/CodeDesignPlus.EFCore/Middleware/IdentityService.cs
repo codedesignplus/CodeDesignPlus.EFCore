@@ -7,10 +7,10 @@ using System.Security.Principal;
 namespace CodeDesignPlus.EFCore.Middleware
 {
     /// <summary>
-    /// Clase que implementa la interfaz IIdentityRepository<TKeyUser>
+    /// Clase que implementa la interfaz IIdentityRepository{TKeyUser}
     /// </summary>
-    /// <typeparam name="TKeyUser">Type of data that the user will identify</typeparam>
-    public class IdentityService<TKeyUser> : IIdentityService<TKeyUser>
+    /// <typeparam name="TUserKey">Type of data that the user will identify</typeparam>
+    public class IdentityService<TUserKey> : IIdentityService<TUserKey>
     {
         /// <summary>
         /// Defines the basic functionality of an identity object.
@@ -19,11 +19,11 @@ namespace CodeDesignPlus.EFCore.Middleware
         /// <summary>
         /// Configuration options for CodeDesignPlus.EFCore
         /// </summary>
-        private readonly EFCoreOption eFCoreOptions;
+        private readonly EFCoreOption efCoreOptions;
         /// <summary>
         /// Provide the information of the authenticated user during the request
         /// </summary>
-        private readonly IAuthenticateUser<TKeyUser> authenticateUser;
+        private readonly IAuthenticateUser<TUserKey> authenticateUser;
         /// <summary>
         /// IHttpContextAccessor
         /// </summary>
@@ -35,19 +35,19 @@ namespace CodeDesignPlus.EFCore.Middleware
         /// <param name="options">Configuration options for CodeDesignPlus.EFCore</param>
         /// <param name="httpContextAccessor">IHttpContextAccessor</param>
         /// <param name="authenticateUser">Information of the authenticated user during the request</param>
-        public IdentityService(IOptions<EFCoreOption> options, IHttpContextAccessor httpContextAccessor, IAuthenticateUser<TKeyUser> authenticateUser)
+        public IdentityService(IOptions<EFCoreOption> options, IHttpContextAccessor httpContextAccessor, IAuthenticateUser<TUserKey> authenticateUser)
         {
-            this.eFCoreOptions = options.Value;
+            this.efCoreOptions = options.Value;
             this.httpContextAccessor = httpContextAccessor;
             this.identity = httpContextAccessor.HttpContext.User.Identity;
             this.authenticateUser = authenticateUser;
         }
 
         /// <summary>
-        /// Method that assigns identity values to IAuthenticateUser<TKeyUser>
+        /// Method that assigns identity values to IAuthenticateUser{TKeyUser}
         /// </summary>
-        /// <returns>Return an IAuthenticateUser<TKeyUser></returns>
-        public IAuthenticateUser<TKeyUser> BuildAuthenticateUser()
+        /// <returns>Return an IAuthenticateUser{TKeyUser}</returns>
+        public IAuthenticateUser<TUserKey> BuildAuthenticateUser()
         {
             authenticateUser.IsAuthenticated = this.identity.IsAuthenticated;
 
@@ -66,25 +66,25 @@ namespace CodeDesignPlus.EFCore.Middleware
         /// Method that obtains the UserName of the authenticated user based on the assigned configuration
         /// </summary>
         /// <returns>Returns the username of the authenticated user</returns>
-        private string GetUser() => this.GetClaimValue(this.eFCoreOptions.ClaimsIdentity.User);
+        private string GetUser() => this.GetClaimValue(this.efCoreOptions.ClaimsIdentity.User);
 
         /// <summary>
         /// Method that obtains the email of the authenticated user based on the assigned configuration
         /// </summary>
         /// <returns>Returns the email of the authenticated user</returns>
-        private string GetEmail() => this.GetClaimValue(this.eFCoreOptions.ClaimsIdentity.Email);
+        private string GetEmail() => this.GetClaimValue(this.efCoreOptions.ClaimsIdentity.Email);
 
 
         /// <summary>
         /// Method that obtains the id of the authenticated user based on the assigned configuration
         /// </summary>
         /// <returns>Returns the id of the authenticated user</returns>
-        private TKeyUser GetIdUser()
+        private TUserKey GetIdUser()
         {
-            var idUser = this.httpContextAccessor.HttpContext.User.FindFirst(this.eFCoreOptions.ClaimsIdentity.IdUser);
+            var idUser = this.httpContextAccessor.HttpContext.User.FindFirst(this.efCoreOptions.ClaimsIdentity.IdUser);
 
             if (idUser != null)
-                return (TKeyUser)Convert.ChangeType(idUser.Value, typeof(TKeyUser));
+                return (TUserKey)Convert.ChangeType(idUser.Value, typeof(TUserKey));
 
             return default;
         }
@@ -95,7 +95,7 @@ namespace CodeDesignPlus.EFCore.Middleware
         /// <returns>Returns true if it is an application, otherwise it returns false</returns>
         private bool IsApplication()
         {
-            var role = this.httpContextAccessor.HttpContext.User.FindFirst(this.eFCoreOptions.ClaimsIdentity.Role);
+            var role = this.httpContextAccessor.HttpContext.User.FindFirst(this.efCoreOptions.ClaimsIdentity.Role);
 
             return role == null;
         }
