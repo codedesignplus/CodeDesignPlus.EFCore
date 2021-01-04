@@ -51,7 +51,7 @@ namespace CodeDesignPlus.EFCore.Operations
         /// <returns>Represents an asynchronous operation that can return a value.</returns>
         public virtual async Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
-            entity.IdUserCreator = AuthenticateUser.IdUser;
+            entity.IdUserCreator = this.AuthenticateUser.IdUser;
             entity.DateCreated = DateTime.Now;
 
             entity = await base.CreateAsync(entity, cancellationToken);

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodeDesignPlus.EfCore.Sample.Api.Abstractions\CodeDesignPlus.EfCore.Sample.Api.Abstractions.csproj" />
+    <ProjectReference Include="..\CodeDesignPlus.EFCore.Sample.Api.Entities\CodeDesignPlus.EFCore.Sample.Api.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
