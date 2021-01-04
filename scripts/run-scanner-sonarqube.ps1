@@ -15,8 +15,8 @@ dotnet sonarscanner begin `
     /k:"CodeDesignPlus.EFCore" `
     /d:sonar.host.url=http://localhost:9000 `
     /d:sonar.cs.opencover.reportsPaths="$report" `
-    /d:sonar.coverage.exclusions="**/CodeDesignPlus.Abstractions/**/*.cs,**/CodeDesignPlus.Entities/**/*.cs,**/CodeDesignPlus.InMemory/**/*.cs,**Test*.cs" `
-    /d:sonar.exclusions="**/CodeDesignPlus.Abstractions/**/*.cs,**/CodeDesignPlus.Entities/**/*.cs,**/CodeDesignPlus.InMemory/**/*.cs"
+    /d:sonar.coverage.exclusions="**/CodeDesignPlus.Abstractions/**/*.cs,**/CodeDesignPlus.Entities/**/*.cs,**/CodeDesignPlus.InMemory/**/*.cs,**Test*.cs,**/CodeDesignPlus.EFCore.Sample.Api/**/*.cs,**/CodeDesignPlus.EFCore.Sample.Api.Entities/**/*.cs,**/CodeDesignPlus.EFCore.Sample.Api.Abstractions/**/*.cs,**/CodeDesignPlus.EfCore.Sample.Api.SqlServer/**/*.cs" `
+    /d:sonar.exclusions="**/CodeDesignPlus.Abstractions/**/*.cs,**/CodeDesignPlus.Entities/**/*.cs,**/CodeDesignPlus.InMemory/**/*.cs,**/CodeDesignPlus.EFCore.Sample.Api/**/*.cs,**/CodeDesignPlus.EFCore.Sample.Api.Entities/**/*.cs,**/CodeDesignPlus.EFCore.Sample.Api.Abstractions/**/*.cs,**/CodeDesignPlus.EfCore.Sample.Api.SqlServer/**/*.cs"
 
 dotnet build
 

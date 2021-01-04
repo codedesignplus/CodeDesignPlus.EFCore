@@ -343,3 +343,4 @@ healthchecksdb
 /.sonarqube
 coverage.opencover.xml
 /.vscode
+/doc/sample/api/1. Overview.md

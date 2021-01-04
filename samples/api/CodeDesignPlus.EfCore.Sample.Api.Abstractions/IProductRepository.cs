@@ -2,7 +2,7 @@
 
 namespace CodeDesignPlus.EfCore.Sample.Api.Abstractions
 {
-    public class Class1
+    public interface IProductRepository
     {
     }
 }

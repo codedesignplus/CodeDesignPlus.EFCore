@@ -80,10 +80,6 @@ namespace CodeDesignPlus.EFCore.Test.Extensions
 
             var repository = new ApplicationRepository(context);
 
-            var applications = new List<Application>();
-
-            await repository.CreateRangeAsync(applications);
-
             // Act
             var pager = await repository.GetEntity<Application>().ToPageAsync(0, 0);
 
@@ -131,7 +127,7 @@ namespace CodeDesignPlus.EFCore.Test.Extensions
             await repository.CreateRangeAsync(applications);
 
             // Act
-            var pager = await repository.GetEntity<Application>().ToPageAsync(currentPage, 10);
+            var pager = await repository.GetEntity<Application>().ToPageAsync(currentPage, pageSize);
 
             // Assert
             Assert.Equal(totalItems, pager.TotalItems);
@@ -179,6 +175,20 @@ namespace CodeDesignPlus.EFCore.Test.Extensions
                     { $"{section}:{nameof(EFCoreOption.ClaimsIdentity)}:{nameof(ClaimsOption.Role)}", "role"},
                 });
 
+            /*
+             * appsettings.json
+             * {
+             *      "EFCore": {
+             *          "ClaimsIdentity": {
+             *              "User": "user",
+             *              "IdUser": "sub",
+             *              "Email": "email",
+             *              "Role": "role"
+             *          }
+             *      }
+             * }
+             */
+
             var configuration = configBuilder.Build();
 
             var services = new ServiceCollection();
@@ -189,6 +199,7 @@ namespace CodeDesignPlus.EFCore.Test.Extensions
 
             // Assert
             var serviceProvider = services.BuildServiceProvider();
+
             var options = serviceProvider.GetService<IOptions<EFCoreOption>>();
             var efCoreOption = options.Value;
 

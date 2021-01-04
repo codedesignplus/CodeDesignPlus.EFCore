@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CodeDesignPlus.EfCore.Sample.Api.Abstractions
 {
-    class ICategoryRepository
+    public interface ICategoryRepository
     {
     }
 }

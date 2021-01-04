@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CodeDesignPlus.EfCore.Sample.Api.SqlServer.EntityConfiguration
 {
-    class ProductEntityConfiguration
+    public class ProductEntityConfiguration
     {
     }
 }

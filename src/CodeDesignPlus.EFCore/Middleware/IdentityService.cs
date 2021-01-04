@@ -49,14 +49,14 @@ namespace CodeDesignPlus.EFCore.Middleware
         /// <returns>Return an IAuthenticateUser{TKeyUser}</returns>
         public IAuthenticateUser<TUserKey> BuildAuthenticateUser()
         {
-            authenticateUser.IsAuthenticated = this.identity.IsAuthenticated;
+            this.authenticateUser.IsAuthenticated = this.identity.IsAuthenticated;
 
-            if (authenticateUser.IsAuthenticated)
+            if (this.authenticateUser.IsAuthenticated)
             {
-                authenticateUser.Name = this.GetUser();
-                authenticateUser.Email = this.GetEmail();
-                authenticateUser.IdUser = this.GetIdUser();
-                authenticateUser.IsApplication = this.IsApplication();
+                this.authenticateUser.Name = this.GetUser();
+                this.authenticateUser.Email = this.GetEmail();
+                this.authenticateUser.IdUser = this.GetIdUser();
+                this.authenticateUser.IsApplication = this.IsApplication();
             }
 
             return this.authenticateUser;
