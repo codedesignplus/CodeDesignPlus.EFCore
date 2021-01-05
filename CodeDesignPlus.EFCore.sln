@@ -47,13 +47,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeDesignPlus.EfCore.Sampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeDesignPlus.EfCore.Sample.Api.SqlServer", "samples\api\CodeDesignPlus.EfCore.Sample.Api.SqlServer\CodeDesignPlus.EfCore.Sample.Api.SqlServer.csproj", "{77E3B43A-B0E2-4839-9B76-0B3D19F3E7AA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{FE8C5FED-3A48-42B2-BCDE-E762C48F98CC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{4C4CD732-BEF0-4E30-919E-F0ED63EB1E17}"
-	ProjectSection(SolutionItems) = preProject
-		doc\sample\api\1. Overview.md = doc\sample\api\1. Overview.md
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,8 +105,6 @@ Global
 		{38C2F36C-2A43-4984-849A-7EFF49E7AD72} = {3FAD7E85-C9A6-41A7-85AA-6004468BDA7E}
 		{500DD88B-C225-491C-AC72-10425F55A720} = {3FAD7E85-C9A6-41A7-85AA-6004468BDA7E}
 		{77E3B43A-B0E2-4839-9B76-0B3D19F3E7AA} = {3FAD7E85-C9A6-41A7-85AA-6004468BDA7E}
-		{FE8C5FED-3A48-42B2-BCDE-E762C48F98CC} = {D9091A1A-F5F3-49D6-BF23-11B4CD8E4BCF}
-		{4C4CD732-BEF0-4E30-919E-F0ED63EB1E17} = {FE8C5FED-3A48-42B2-BCDE-E762C48F98CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {113C3F1F-931B-46EB-8BA4-127F86ECA4E9}
