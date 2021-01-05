@@ -93,7 +93,7 @@ namespace CodeDesignPlus.EFCore.Operations
                         entityUpdated.GetType().GetProperty(property.Name).SetValue(entityUpdated, value, null);
                 }
 
-                return await base.UpdateAsync(entity, cancellationToken);
+                return await base.Context.SaveChangesAsync() > 0;
             }
 
             return false;

@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\CodeDesignPlus.EFCore\CodeDesignPlus.EFCore.csproj" />
+    <ProjectReference Include="..\CodeDesignPlus.EFCore.Sample.Api.Entities\CodeDesignPlus.EFCore.Sample.Api.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -28,12 +28,13 @@ namespace CodeDesignPlus.EFCore.Extensions
         /// <typeparam name="TKey">Type of data that will identify the record</typeparam>
         /// <typeparam name="TUserKey">Type of data that the user will identify</typeparam>
         /// <typeparam name="TEntity">The entity type to be configured.</typeparam>
+        /// <param name="userRequired"></param>
         /// <param name="builder">The builder to be used to configure the entity type.</param>
-        public static void ConfigurationBase<TKey, TUserKey, TEntity>(this EntityTypeBuilder<TEntity> builder)
+        public static void ConfigurationBase<TKey, TUserKey, TEntity>(this EntityTypeBuilder<TEntity> builder, bool userRequired = true, int maxLenghtUser = 256)
             where TEntity : class, IEntityBase<TKey, TUserKey>
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property(x => x.IdUserCreator).IsRequired();
+            builder.Property(x => x.IdUserCreator).HasMaxLength(maxLenghtUser).IsRequired(userRequired);
             builder.Property(x => x.State).IsRequired();
             builder.Property(x => x.DateCreated).IsRequired();
         }
