@@ -134,43 +134,32 @@ dotnet restore .\CodeDesignPlus.EFCore.sln
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-En este momento no contamos con ejemplos de implementación de la librería por el momento, sin embargo, puede ver los códigos creados en las pruebas unitarias del proyecto para ver su funcionamiento e implementación.
+Esta es una guía practica que lo llevara por una serie de pasos para la implementación de CodeDesignPlus.EFCore en su proyecto .Net Core (Web - Api).
 
-```csharp
-/// <summary>
-/// Valida la paginación a partir de un metodo de extensión para EF Core
-/// </summary>
-[Fact]
-public async Task Pager_ArgumentsDefault_StateObjectStandardWithDataDB()
-{
-    // Arrange
-    var options = new DbContextOptionsBuilder<FakeContext>()
-        .UseInMemoryDatabase(databaseName: "FakeDbMemory")
-        .Options;
+* [Creando un proyecto API (Proyecto, Librerías y Paquetes Nuget)](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/01.-Creando-API)
+* [Creando Librerías](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/02.-Creando-Librer%C3%ADas)
+* [Instalación de Paquetes Nuget](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/03.-Instalaci%C3%B3n-de-Paquetes-Nuget)
+* [Dependencias del Proyecto](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/04.-Dependencias-de-Proyectos)
+* [Entities](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/05.-Entidades)
+* [Abstractions](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/06.-Abstractions)
+* [EntityTypeConfiguration](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/07.-EntityTypeConfiguration)
+* [Repositories](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/08.-Repositories)
+* [DbContext](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/09.-DbContext)
+* [Startup](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/10.-Startup)
+* [Controller](https://github.com/codedesignplus/CodeDesignPlus.EFCore/wiki/11.-Controller)
 
-    var fakeContext = new FakeContext(options);
-    var entities = new List<FakeEntity>();
+Este ejemplo con es desarrollado con [Visual Studio Comumnity](#getting-started), sin embargo usted es libre de usar la línea de comandos de dotnet para la creación de la solución, proyectos e instalación de paquetes nuget.
 
-    for (int i = 0; i < 500; i++)
-    {
-        entities.Add(new FakeEntity()
-        {
-            Name = $"Fake - {i}",
-            State = true,
-            IdUserCreator = Guid.NewGuid().ToString("D"),
-            DateCreated = DateTime.Now,
-        });
-    }
-    await fakeContext.FakeEntity.AddRangeAsync(entities);
-    await fakeContext.SaveChangesAsync();
+Para un detalle completo lo invitamos a ver los videos de la creación de la librería:
 
-    // Act
-    var pager = await fakeContext.FakeEntity.Where(x => x.State).ToPageAsync(CURRENT_PAGE, PAGE_SIZE);
-
-    // Assert
-    this.AssertPager(TOTAL_ITEMS, CURRENT_PAGE, PAGE_SIZE, MAX_PAGES, pager, entities);
-}
-```
+1. [Introducción](https://youtu.be/wwckEU5wtT4)
+2. [RepositoryBase](https://youtu.be/nxM_FKbGtzM)
+3. [Repository Patter](https://youtu.be/ydi-0MrQO80)
+4. [Unit Test - Repository Patter](https://youtu.be/XkX9DNoRULM)
+5. [OperationBase](https://youtu.be/gj5iA3Z-MAw)
+6. [Unit Test - OperationBase](https://youtu.be/5jXx4-2vnaI)
+7. [Method Extensions](https://youtu.be/vSa7-4rZGN4)
+8. [Unit Test - Method Extensions](https://youtu.be/PQvVmpNsxfg)
 
 <!-- ROADMAP -->
 ## Roadmap
